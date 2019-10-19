@@ -23,6 +23,15 @@ module.exports = appInfo => {
 
   // add your middleware config here
   config.middleware = [ 'errHandler' ];
+  // 数据库配置
+  config.sequelize = {
+    dialect: 'mysql',
+    host: '111.230.147.75',
+    username: 'root',
+    password: 'XiaoCY135!',
+    port: 3306,
+    database: 'tumu-project',
+  };
 
   // add your user config here
   const userConfig = {
