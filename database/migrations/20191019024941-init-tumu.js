@@ -52,8 +52,16 @@ module.exports = {
       region_id: INTEGER,
       type_id: INTEGER,
       picture_path: STRING(128),
+    }),
+    await queryInterface.createTable('region_damage_type2', {
+      id: {
+        type: INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+      },
+      rd_id: INTEGER,
+      percent: INTEGER,
     })
-
     );
   },
   // 在执行数据库降级时调用的函数，删除 users 表
@@ -63,5 +71,6 @@ module.exports = {
     await queryInterface.dropTable('region_introduction_picture');
     await queryInterface.dropTable('region_damage_type');
     await queryInterface.dropTable('damage_type_picture');
+    await queryInterface.dropTable('region_damage_type2');
   },
 };

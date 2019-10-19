@@ -30,7 +30,7 @@ module.exports = appInfo => {
     username: 'root',
     password: 'XiaoCY135!',
     port: 3306,
-    database: 'tumu-project',
+    database: 'tumu_project',
   };
 
   // add your user config here
