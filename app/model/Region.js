@@ -19,5 +19,16 @@ module.exports = app => {
     timestamps: false,
   });
 
+  Region.associate = function() {
+    Region.hasMany(app.model.RegionIntroductionPicture, {
+      as: 'pictures',
+      foreignKey: 'region_id',
+    });
+    Region.hasMany(app.model.RegionDamageType, {
+      as: 'damage_type',
+      foreignKey: 'region_id',
+    });
+  };
+
   return Region;
 };

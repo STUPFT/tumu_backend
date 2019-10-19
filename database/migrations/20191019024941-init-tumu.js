@@ -53,7 +53,7 @@ module.exports = {
       type_id: INTEGER,
       picture_path: STRING(128),
     }),
-    await queryInterface.createTable('region_damage_type2', {
+    await queryInterface.createTable('damage_type_picture2', {
       id: {
         type: INTEGER,
         primaryKey: true,
@@ -71,6 +71,6 @@ module.exports = {
     await queryInterface.dropTable('region_introduction_picture');
     await queryInterface.dropTable('region_damage_type');
     await queryInterface.dropTable('damage_type_picture');
-    await queryInterface.dropTable('region_damage_type2');
+    await queryInterface.dropTable('damage_type_picture2');
   },
 };
