@@ -31,6 +31,35 @@ class RegionDetailService extends Service {
     }
     return res;
   }
+  async getDetail(id) {
+    const { ctx } = this;
+    let result;
+    try {
+      result = await ctx.model.Region.findOne({
+        attributes: { exclude: [ 'region_id' ] },
+        where: {
+          region_id: id,
+        },
+        include: [{
+          model: ctx.model.RegionIntroductionPicture,
+          attributes: [ 'picture_path' ],
+          as: 'pictures',
+        }, {
+          model: ctx.model.RegionDamageType,
+          attributes: [ 'type_id', 'percent' ],
+          as: 'damage_type',
+        }, {
+          model: ctx.model.DamageTypePicture,
+          attributes: [ 'type_id', 'picture_path' ],
+          as: 'damage_pictures',
+        }],
+      });
+    } catch (err) {
+      ctx.logger.warn(err);
+      // TODO:错误码
+    }
+    return result;
+  }
 }
 
 module.exports = RegionDetailService;

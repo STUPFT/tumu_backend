@@ -22,7 +22,7 @@ module.exports = app => {
       as: 'pictures',
       foreignKey: 'rd_id',
     });
-  }
+  };
 
   return RegionDamageType;
 };

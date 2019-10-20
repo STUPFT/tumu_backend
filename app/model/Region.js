@@ -28,6 +28,10 @@ module.exports = app => {
       as: 'damage_type',
       foreignKey: 'region_id',
     });
+    Region.hasMany(app.model.DamageTypePicture, {
+      as: 'damage_pictures',
+      foreignKey: 'region_id',
+    });
   };
 
   return Region;

@@ -13,6 +13,14 @@ class DetailController extends Controller {
       data: await ctx.service.regionDetails.detail(id),
     };
   }
+  async getDetails() {
+    const { ctx } = this;
+    ctx.validate({ id: 'string' }, ctx.request.query);
+    const { id } = ctx.request.query;
+    ctx.body = {
+      data: await ctx.service.regionDetails.getDetail(id),
+    };
+  }
 }
 
 module.exports = DetailController;

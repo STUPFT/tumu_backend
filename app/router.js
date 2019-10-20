@@ -11,7 +11,11 @@ module.exports = app => {
   router.get('/destroy/list', controller.homePage.getDamageTypeList);
   // 获取地区列表
   router.get('/region/list', controller.homePage.getRegionList);
-
+  /**
+   * 获取详情
+   * id: 地区id
+   */
+  router.get('/details', controller.region.getDetails);
   /**
    * 获取详情
    * id : 地区 id

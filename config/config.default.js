@@ -32,6 +32,11 @@ module.exports = appInfo => {
     port: 3306,
     database: 'tumu_project',
   };
+  // validate相关配置
+  exports.validate = {
+    // convert: false,
+    // validateRoot: false,
+  };
 
   // add your user config here
   const userConfig = {
