@@ -22,6 +22,10 @@ module.exports = app => {
       as: 'pictures',
       foreignKey: 'rd_id',
     });
+    RegionDamageType.belongsTo(app.model.DamageType, {
+      as: 'type',
+      foreignKey: 'type_id',
+    });
   };
 
   return RegionDamageType;
