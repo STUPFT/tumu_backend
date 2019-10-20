@@ -3,6 +3,10 @@
 /** @type Egg.EggPlugin */
 module.exports = {
   // had enabled by egg
+  validate: {
+    enable: true,
+    package: 'egg-validate',
+  },
   static: {
     enable: true,
   },
