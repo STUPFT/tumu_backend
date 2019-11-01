@@ -11,7 +11,7 @@ module.exports = {
         autoIncrement: true,
       },
       region_name: STRING(64),
-      first_picture: STRING(128),
+      first_picture: STRING(512),
       introduction: TEXT,
       repair_rating: INTEGER,
       conclusion: STRING(1024),
@@ -31,7 +31,7 @@ module.exports = {
         autoIncrement: true,
       },
       region_id: INTEGER,
-      picture_path: STRING(128),
+      picture_path: STRING(512),
     }),
     await queryInterface.createTable('region_damage_type', {
       id: {
@@ -49,18 +49,8 @@ module.exports = {
         primaryKey: true,
         autoIncrement: true,
       },
-      region_id: INTEGER,
-      type_id: INTEGER,
-      picture_path: STRING(128),
-    }),
-    await queryInterface.createTable('damage_type_picture2', {
-      id: {
-        type: INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-      },
       rd_id: INTEGER,
-      percent: INTEGER,
+      picture_path: STRING(512),
     })
     );
   },
@@ -71,6 +61,5 @@ module.exports = {
     await queryInterface.dropTable('region_introduction_picture');
     await queryInterface.dropTable('region_damage_type');
     await queryInterface.dropTable('damage_type_picture');
-    await queryInterface.dropTable('damage_type_picture2');
   },
 };

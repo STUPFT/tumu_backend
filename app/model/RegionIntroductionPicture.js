@@ -10,7 +10,7 @@ module.exports = app => {
       autoIncrement: true,
     },
     region_id: INTEGER,
-    picture_path: STRING(128),
+    picture_path: STRING(512),
   }, {
     tableName: 'region_introduction_picture',
     timestamps: false,

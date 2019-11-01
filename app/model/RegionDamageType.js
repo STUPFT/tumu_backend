@@ -18,7 +18,7 @@ module.exports = app => {
   });
 
   RegionDamageType.associate = function() {
-    RegionDamageType.hasMany(app.model.DamageTypePicture2, {
+    RegionDamageType.hasMany(app.model.DamageTypePicture, {
       as: 'pictures',
       foreignKey: 'rd_id',
     });

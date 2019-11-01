@@ -20,7 +20,7 @@ class RegionDetailService extends Service {
           attributes: { exclude: [ 'id', 'region_id' ] },
           as: 'damage_type',
           include: [{
-            model: ctx.model.DamageTypePicture2,
+            model: ctx.model.DamageTypePicture,
             attributes: [ 'picture_path' ],
             as: 'pictures',
           }],

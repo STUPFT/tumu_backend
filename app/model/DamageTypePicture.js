@@ -9,9 +9,8 @@ module.exports = app => {
       primaryKey: true,
       autoIncrement: true,
     },
-    region_id: INTEGER,
-    type_id: INTEGER,
-    picture_path: STRING(128),
+    rd_id: INTEGER,
+    picture_path: STRING(512),
   }, {
     tableName: 'damage_type_picture',
     timestamps: false,

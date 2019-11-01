@@ -10,7 +10,7 @@ module.exports = app => {
       autoIncrement: true,
     },
     region_name: STRING(64),
-    first_picture: STRING(128),
+    first_picture: STRING(512),
     introduction: TEXT,
     repair_rating: INTEGER,
     conclusion: STRING(1024),
