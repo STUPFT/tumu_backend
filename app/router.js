@@ -13,11 +13,6 @@ module.exports = app => {
   router.get('/region/list', middleware.picturePrefix(), controller.homePage.getRegionList);
   /**
    * 获取详情
-   * id: 地区id
-   */
-  router.get('/details', controller.region.getDetails);
-  /**
-   * 获取详情
    * id : 地区 id
    */
   router.get('/details/:id', middleware.picturePrefix(), controller.region.detail);
@@ -25,6 +20,8 @@ module.exports = app => {
    * 搜索
    * key 关键词
    * mode 模式 可选 damage_type / region_info
+   * start 分页用 起始 默认为0
+   * num 分页用 数量 默认为10
    */
   router.get('/search', controller.search.search);
 };

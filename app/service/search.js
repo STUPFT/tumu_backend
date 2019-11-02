@@ -15,12 +15,13 @@ class SearchService extends Service {
    * 通过地区信息进行搜索
    * Elasticsearch实现
    */
-  async searchByRegionInfo(keyword) {
+  async searchByRegionInfo(keyword, start = 0, num = 10) {
     const res = await client.search({
       index: esIndex,
       type: esType,
       // analyzer: 'ik_smart',
-      // from: 0,
+      from: start,
+      size: num,
       _source: '',
       body: {
         query: {
@@ -52,8 +53,6 @@ class SearchService extends Service {
     const { Op } = app.Sequelize;
     const result = await ctx.model.Region.findAll({
       attributes: [ 'region_id', 'region_name', 'first_picture', 'introduction', 'repair_rating' ],
-      // offset: start,
-      // limit: num,
       include: [{
         model: ctx.model.RegionDamageType,
         attributes: [ 'type_id' ],
@@ -74,6 +73,9 @@ class SearchService extends Service {
           },
         }],
       }],
+      offset: start,
+      limit: num,
+      subQuery: false,
     });
     return result;
   }

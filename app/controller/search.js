@@ -9,14 +9,16 @@ class SearchController extends Controller {
     ctx.validate({
       mode: 'string',
       key: 'string',
+      start: 'string?',
+      num: 'string?',
     }, ctx.request.query);
-    const { mode, key } = ctx.request.query;
+    const { mode, key, start = '0', num = '10' } = ctx.request.query;
     let data;
     if (mode === 'region_info') {
-      data = await ctx.service.search.searchByRegionInfo(key);
+      data = await ctx.service.search.searchByRegionInfo(key, parseInt(start), parseInt(num));
     }
     if (mode === 'damage_type') {
-      data = await ctx.service.search.searchByDamageType(key);
+      data = await ctx.service.search.searchByDamageType(key, parseInt(start), parseInt(num));
     }
     ctx.body = {
       data: data || [],
