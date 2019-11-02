@@ -4,13 +4,13 @@
  * @param {Egg.Application} app - egg application
  */
 module.exports = app => {
-  const { router, controller } = app;
+  const { router, controller, middleware } = app;
   router.get('/', controller.home.index);
 
   // 获取破坏类型列表
   router.get('/destroy/list', controller.homePage.getDamageTypeList);
   // 获取地区列表
-  router.get('/region/list', controller.homePage.getRegionList);
+  router.get('/region/list', middleware.picturePrefix(), controller.homePage.getRegionList);
   /**
    * 获取详情
    * id: 地区id
@@ -20,7 +20,7 @@ module.exports = app => {
    * 获取详情
    * id : 地区 id
    */
-  router.get('/details/:id', controller.region.detail);
+  router.get('/details/:id', middleware.picturePrefix(), controller.region.detail);
   /**
    * 搜索
    * key 关键词
