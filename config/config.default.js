@@ -17,7 +17,7 @@ module.exports = appInfo => {
       dir: path.join(appInfo.baseDir, 'app/public'),
     },
   };
-  config.prefixes = 'http://127.0.0.1:7001/static'
+  config.prefixes = 'http://120.77.174.231:7001/static'
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1571160929426_4425';
 
