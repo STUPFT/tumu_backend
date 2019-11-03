@@ -39,7 +39,7 @@ module.exports = appInfo => {
       enable: false,
       ignoreJSON: true,
     },
-    domainWhiteList: '*',
+    domainWhiteList: [ '*' ],
   };
   config.cors = {
     origin: '*',
