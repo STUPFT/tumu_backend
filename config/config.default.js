@@ -32,6 +32,20 @@ module.exports = appInfo => {
     port: 3306,
     database: 'tumu_project',
   };
+
+  // 跨域配置
+  config.security = {
+    csrf: {
+      enable: false,
+      ignoreJSON: true,
+    },
+    domainWhiteList: '*',
+  };
+  config.cors = {
+    origin: '*',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
+  };
+
   // validate相关配置
   exports.validate = {
     // convert: false,
