@@ -24,4 +24,9 @@ module.exports = app => {
    * num 分页用 数量 默认为10
    */
   router.get('/search', controller.search.search);
+
+  /**
+   * 暂时的上传文件（图片）接口，可以同时多个文件
+   */
+  router.post('/pictures', controller.home.uploadPictures);
 };
